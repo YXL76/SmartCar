@@ -1,0 +1,6 @@
+{
+    "board": "Microduino:avr:328p",
+    "configuration": "cpu=16MHzatmega328",
+    "port": "COM8",
+    "sketch": "WiFistation.ino"
+}
