@@ -2,6 +2,7 @@
 App({
   data: {
     imageWidth: 0,          //屏幕宽度
+    imageHeight: 0,         //屏幕高度
     temperature: {},        //温度数组
     light: {},              //光强数组
     humidity: {},           //湿度数组
@@ -12,5 +13,6 @@ App({
 
   onLaunch: function () {
     this.data.imageWidth = wx.getSystemInfoSync().windowWidth;      //获取屏幕宽度
+    this.data.imageHeight = wx.getSystemInfoSync().windowHeight;      //获取屏幕高度
   },
 })

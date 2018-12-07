@@ -10,12 +10,12 @@
   ],
   "window": {
     "backgroundTextStyle": "light",
-    "navigationBarBackgroundColor": "#90EE90",
+    "navigationBarBackgroundColor": "white",
     "navigationBarTitleText": "智能监控小车",
     "navigationBarTextStyle": "black"
   },
   "tabBar": {
-    "selectedColor": "green",
+    "selectedColor": "#1AAD19",
     "list": [
       {
         "pagePath": "pages/home_not_log/home_not_log",
