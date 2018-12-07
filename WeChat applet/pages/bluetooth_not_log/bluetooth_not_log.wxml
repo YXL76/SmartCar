@@ -1,0 +1,64 @@
+<!-- pages/bluetooth_not_log/bluetooth_not_log.wxml -->
+<view class="bg3">
+  <!-- 未登录 -->
+  <view wx:if="{{!hide}}" style="margin-left: {{imageWidth}}rpx;">
+    <text>\n\n\n</text>
+    <text style="font-size:42rpx">请登录后再进行操作</text>
+  </view>
+  <!-- 已登录 -->
+  <view wx:if="{{hide}}">
+    <!-- 蓝牙开关 -->
+    <view class="section">
+      <view class="content">
+        <text style="font-size:42rpx">蓝牙开关</text>
+      </view>
+      <view class="switch">
+        <switch checked="{{isbluetoothready}}" bindchange="open_BLE" />
+      </view>
+    </view>
+    <!-- 蓝牙搜索 -->
+    <view class="section">
+      <button style="width:350rpx;" class="weui-btn" type="primary" plain="true" loading="{{searchingstatus}}" bindtap="search_BLE">
+        {{searchingstatus?"搜索中":"搜索蓝牙"}}
+      </button>
+    </view>
+    <!-- 蓝牙列表 -->
+    <block wx:for="{{list}}" wx:key="deviceId">
+      <!-- 蓝牙列表 -->
+      <view class="section" style="flex-direction:row">
+        <view>
+          <text>{{index}}:\n</text>
+          <text>设备名称:  {{item.name}}\n</text>
+          <text>MAC地址:   {{item.deviceId}}</text>
+        </view>
+        <!-- 蓝牙连接 -->
+        <view class="connection">
+          <button id="{{item.deviceId}}" size="mini" bindtap="connectTO">
+            {{deviceconnected?"已连接":"连接"}}
+          </button>
+        </view>
+      </view>
+    </block>
+    <block wx:if="{{deviceconnected}}">
+      <!-- 接收数据 -->
+      <view>
+        <text>\n\n数据接收\n</text>
+        <text>{{receive_data}}\n</text>
+        <!-- <button size="mini" bindtap="receiveMessages">接收</button> -->
+      </view>
+      <!-- 发送数据 -->
+      <view>
+        <form bindsubmit="formSubmit">
+          <text>\n\n数据发送:</text>
+          <input name="senddata" />
+          <button size="mini" formType="submit">发送</button>
+          <button size="mini" formType="reset">清空</button>
+        </form>
+      </view>
+    </block>
+  </view>
+  <!-- 页脚 -->
+  <view class="weui-footer weui-footer_fixed-bottom">
+    <view class="weui-footer__text">Powered by C214</view>
+  </view>
+</view>

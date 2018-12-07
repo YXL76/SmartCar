@@ -1,0 +1,18 @@
+/* pages/my_log/my_log.wxss */
+
+/* 用户信息*/
+
+.userinfo {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+/*用户头像*/
+
+.userinfo-avatar {
+  width: 200rpx;
+  height: 200rpx;
+  margin-top: 80rpx;
+  border-radius: 50%;
+}

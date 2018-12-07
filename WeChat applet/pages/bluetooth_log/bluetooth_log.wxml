@@ -1,0 +1,7 @@
+<!-- pages/bluetooth_log/bluetooth_log.wxml -->
+<view>
+  <!-- 页脚 -->
+  <view class="weui-footer weui-footer_fixed-bottom">
+    <view class="weui-footer__text">Powered by C214</view>
+  </view>
+</view>

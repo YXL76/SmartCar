@@ -1,0 +1,11 @@
+<!-- pages/home_not_log/home_not_log.wxml -->
+<view class="bg2">
+  <text>\n\n</text>
+  <button style="width:400rpx;" class="weui-btn" type="primary" plain="true" disabled="{{display}}" bindtap="show">
+    {{text}}
+  </button>
+  <!-- 页脚 -->
+  <view class="weui-footer weui-footer_fixed-bottom">
+    <view class="weui-footer__text">Powered by C214</view>
+  </view>
+</view>

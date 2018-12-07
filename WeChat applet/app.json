@@ -1,0 +1,52 @@
+{
+  "pages": [
+    "pages/home_not_log/home_not_log",
+    "pages/home_log/home_log",
+    "pages/my_not_log/my_not_log",
+    "pages/my_log/my_log",
+    "pages/bluetooth_not_log/bluetooth_not_log",
+    "pages/bluetooth_log/bluetooth_log",
+    "pages/map/map"
+  ],
+  "window": {
+    "backgroundTextStyle": "light",
+    "navigationBarBackgroundColor": "#90EE90",
+    "navigationBarTitleText": "智能监控小车",
+    "navigationBarTextStyle": "black"
+  },
+  "tabBar": {
+    "selectedColor": "green",
+    "list": [
+      {
+        "pagePath": "pages/home_not_log/home_not_log",
+        "text": "主页",
+        "iconPath": "img/home-8x.png",
+        "selectedIconPath": "img/home-8x-f.png"
+      },
+      {
+        "pagePath": "pages/bluetooth_not_log/bluetooth_not_log",
+        "text": "蓝牙",
+        "iconPath": "img/bluetooth-8x.png",
+        "selectedIconPath": "img/bluetooth-8x-f.png"
+      },
+      {
+        "pagePath": "pages/map/map",
+        "text": "地图",
+        "iconPath": "img/map-8x.png",
+        "selectedIconPath": "img/map-8x-f.png"
+      },
+      {
+        "pagePath": "pages/my_log/my_log",
+        "text": "我的",
+        "iconPath": "img/person-8x.png",
+        "selectedIconPath": "img/person-8x-f.png"
+      }
+    ]
+  },
+  "plugins": {
+    "smsvercode": {
+      "version": "1.0.2",
+      "provider": "wx47025434eb041672"
+    }
+  }
+}

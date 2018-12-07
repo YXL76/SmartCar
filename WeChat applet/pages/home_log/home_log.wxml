@@ -1,0 +1,13 @@
+<!-- pages/home_log/home_log.wxml -->
+<view>
+  <!-- 湿度图表 -->
+  <canvas class="canvas" id="chart1" canvas-id="humidity"></canvas>
+  <!-- 光强图表 -->
+  <canvas class="canvas" id="chart2" canvas-id="light"></canvas>
+  <!-- 温度图表 -->
+  <canvas class="canvas" id="chart3" canvas-id="tempe"></canvas>
+  <!-- 页脚 -->
+  <view class="weui-footer weui-footer_fixed-bottom">
+    <view class="weui-footer__text">Powered by C214</view>
+  </view>
+</view>
