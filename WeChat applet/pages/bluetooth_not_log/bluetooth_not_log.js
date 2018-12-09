@@ -1,5 +1,5 @@
 // pages/bluetooth_not_log/bluetooth_not_log.js
-var app = getApp();
+var app = getApp();                   //获取全局变量
 var temp = [];
 var string_temp = "";
 var serviceId = "0000ffe0-0000-1000-8000-00805f9b34fb";

@@ -1,11 +1,15 @@
 <!-- pages/map/map.wxml -->
 <view class="bg4">
-  <map id="map" longitude="{{longitude}}" latitude="{{latitude}}" scale="{{scale}}" markers="{{markers}}" show-compass="true" enable-zoom="false" enable-scroll="false" enable-rotate="false" show-location style="width: 100%; height: 100%;">
+  <!-- 地图 -->
+  <map id="map" longitude="{{longitude}}" latitude="{{latitude}}" scale="{{scale}}" markers="{{markers}}" show-compass="true" enable-zoom="false" enable-scroll="true" enable-rotate="false" show-location style="width: 100%; height: 100%;">
     <cover-view>
-      <cover-image style="height:54rpx; width:54rpx; margin-left:{{imageWidth+230}}rpx; margin-top: {{imageHeight+200}}rpx;" src="../../img/plus-8x.png" />
-      <cover-image style="height:40rpx; width:0rpx"/>
-      <cover-image style="height:54rpx; width:54rpx; left: {{imageWidth+230}}rpx; position:relative;" src="../../img/minus-8x.png" />
-      <cover-image style="height:80rpx; width:80rpx; left: 70rpx; position:relative;" src="../../img/move-8x.png" />
+      <!-- 放大 -->
+      <cover-image class="img" style="margin-left:{{imageWidth+210}}rpx; margin-top: {{imageHeight+180}}rpx;" src="../../img/plus-8x.png" bindtap="plusZoom" />
+      <cover-image style="height:40rpx; width:0rpx" />
+      <!-- 缩小 -->
+      <cover-image class="img" style="left: {{imageWidth+210}}rpx; position:relative;" src="../../img/minus-8x.png" bindtap="minusZoom" />
+      <!-- 定位 -->
+      <cover-image class="img" style="left: 70rpx; position:relative;" src="../../img/move-8x.png" bindtap="getPosition" />
     </cover-view>
   </map>
   <!-- 页脚 -->

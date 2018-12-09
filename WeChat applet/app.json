@@ -24,14 +24,14 @@
         "selectedIconPath": "img/home-8x-f.png"
       },
       {
-        "pagePath": "pages/bluetooth_not_log/bluetooth_not_log",
+        "pagePath": "pages/bluetooth_log/bluetooth_log",
         "text": "蓝牙",
         "iconPath": "img/bluetooth-8x.png",
         "selectedIconPath": "img/bluetooth-8x-f.png"
       },
       {
         "pagePath": "pages/map/map",
-        "text": "地图",
+        "text": "位置",
         "iconPath": "img/map-8x.png",
         "selectedIconPath": "img/map-8x-f.png"
       },

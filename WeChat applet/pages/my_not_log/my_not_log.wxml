@@ -1,6 +1,6 @@
 <!-- pages/my_log/my_log.wxml -->
-<view class="page bg1">
-  <view class="page__bd">
+<view class="bg1">
+  <view>
     <view class="weui-tab">
       <view class="weui-navbar">
         <block wx:for-items="{{tabs}}" wx:key="{{index}}">

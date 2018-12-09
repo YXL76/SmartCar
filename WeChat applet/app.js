@@ -13,6 +13,6 @@ App({
 
   onLaunch: function () {
     this.data.imageWidth = wx.getSystemInfoSync().windowWidth;      //获取屏幕宽度
-    this.data.imageHeight = wx.getSystemInfoSync().windowHeight;      //获取屏幕高度
+    this.data.imageHeight = wx.getSystemInfoSync().windowHeight;    //获取屏幕高度
   },
 })
