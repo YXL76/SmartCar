@@ -1,5 +1,5 @@
 <!-- pages/home_log/home_log.wxml -->
-<view>
+<view class="bg2">
   <!-- 湿度图表 -->
   <canvas class="canvas" id="chart1" canvas-id="humidity"></canvas>
   <!-- 光强图表 -->

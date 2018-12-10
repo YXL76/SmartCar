@@ -2,7 +2,6 @@
 var app = getApp();                   //获取全局变量
 
 Page({
-
   data: {
     longitude: 116.288860,            //中心经度
     latitude: 40.157410,              //中心纬度
@@ -10,7 +9,7 @@ Page({
     imageWidth: 0,                    //页面宽度
     imageHeight: 0,                   //页面高度
     markers: [{
-      alpha: 0.8,                     //透明的
+      alpha: 0.8,                     //透明度
       id: 0,
       iconPath: "../../img/map-marker-8x.png",
       longitude: 116.288860,          //经度

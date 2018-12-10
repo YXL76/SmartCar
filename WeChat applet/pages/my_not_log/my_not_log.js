@@ -1,6 +1,6 @@
 // pages/my_not_log/my_not_log.js
 var app = getApp();                         //获取全局变量
-var sliderWidth = 96;
+var sliderWidth = 96;                       //用于计算中间位置
 var plugin = requirePlugin("smsvercode");   //引入
 
 Page({

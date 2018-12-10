@@ -15,9 +15,11 @@ const int turnleft[4] = {LOW, LOW, HIGH, LOW};  //左转状态
 const int turnright[4] = {LOW, HIGH, LOW, LOW}; //右转状态
 
 bool bluetoothstate;
-float left_speed, right_speeed;
-unsigned long new_time, old_time;
-int distance, left_count, right_count, infrared_read[4];
+int left_count, right_count;
+//float left_speed, right_speeed;
+unsigned long new_time,
+    old_time;
+int now, distance, infrared_read[4];
 
 void setup()
 {
@@ -28,32 +30,35 @@ void setup()
         pinMode(infrared_pin[i], INPUT);
     pinMode(wave_input_pin, INPUT);
     pinMode(wave_output_pin, OUTPUT);
-    attachInterrupt(1, left_callback, FALLING);
-    attachInterrupt(0, right_callback, FALLING);
+    //attachInterrupt(1, left_callback, FALLING);
+    //attachInterrupt(0, right_callback, FALLING);
 }
 
 void loop()
 {
-    distance = get_distance();
-    //speed_calculation();
-    if (distance <= 30)
-        motor_run(STOP); //前方有障碍
-    else if (Serial.available() > 0)
+    if (Serial.available() > 0)
     {
-        int now = Serial.read() - 48;
+        now = Serial.read();
         Serial.println(now);
         if (now == 6)
             bluetoothstate = !bluetoothstate; //蓝牙循迹状态转换
-        if (bluetoothstate)                   //蓝牙遥控模式
-            motor_run(now);
-        else //红外循迹模式
+    }
+    if (bluetoothstate) //蓝牙遥控模式
+    {
+        motor_run(now);
+    }
+    else //红外循迹模式
+    {
+        distance = get_distance();
+        if (distance <= 30)
+            motor_run(STOP); //前方有障碍
+        else
             infrared_tracking();
     }
-    else if (!bluetoothstate)
-        infrared_tracking(); //红外循迹模式
 }
+
 //速度计算
-void speed_calculation()
+/*void speed_calculation()
 {
     new_time = millis();
     if (abs(new_time - old_time) >= 1000)
@@ -62,20 +67,20 @@ void speed_calculation()
         detachInterrupt(1);
         left_speed = (float)left_count * 60 / 20;
         right_speeed = (float)right_count * 60 / 20;
-        /*Serial.print("left:");
+        Serial.print("left:");
         Serial.print(left_speed);
         Serial.print(" right:");
-        Serial.println(right_speeed);*/
+        Serial.println(right_speeed);
         left_count = right_count = 0;
         old_time = millis();
         attachInterrupt(0, right_callback, FALLING);
         attachInterrupt(1, left_callback, FALLING);
     }
-}
+}*/
 
-inline void left_callback() { ++left_count; }
+//inline void left_callback() { ++left_count; }
 
-inline void right_callback() { ++right_count; }
+//inline void right_callback() { ++right_count; }
 
 //电机驱动
 void motor_run(int state)

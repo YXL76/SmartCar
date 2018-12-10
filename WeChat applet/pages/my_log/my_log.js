@@ -2,7 +2,6 @@
 var app = getApp()          //获取全局变量
 
 Page({
-
   data: {
     hide: true,               //登录标记
     imagesrc: '',             //头像路径

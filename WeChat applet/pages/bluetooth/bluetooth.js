@@ -1,26 +1,44 @@
-// pages/bluetooth_not_log/bluetooth_not_log.js
+// pages/bluetooth/bluetooth.js
+var sliderWidth = 96;                 //用于计算中间位置
 var app = getApp();                   //获取全局变量
-var temp = [];
-var string_temp = "";
 var serviceId = "0000ffe0-0000-1000-8000-00805f9b34fb";
 var characteristicId = "0000ffe1-0000-1000-8000-00805f9b34fb";
 
 Page({
   data: {
+    state: false,               //蓝牙操控状态
     hide: false,                //登录标记
     imageWidth: 0,              //页面宽度
     isbluetoothready: false,    //蓝牙初始化
     searchingstatus: false,     //搜索状态
-    receivedata: '666',         //
-    id_text: string_temp,       //
-    list: [],                   //
-    receive_data: 'none  '      //
+    list: [],                   //设备列表
+    receive_data: '0',          //蓝牙串口消息
+    tabs: ["选项一", "选项二"],
+    activeIndex: 0,
+    sliderOffset: 0,
+    sliderLeft: 0
   },
 
   onLoad: function () {
     this.setData({
-      imageWidth: app.data.imageWidth / 2,
-    })
+      imageWidth: app.data.imageWidth,
+    });
+    var that = this;
+    wx.getSystemInfo({
+      success: function (res) {
+        that.setData({
+          sliderLeft: (res.windowWidth / that.data.tabs.length - sliderWidth) / 2,
+          sliderOffset: res.windowWidth / that.data.tabs.length * that.data.activeIndex
+        });
+      }
+    });
+  },
+
+  tabClick: function (e) {
+    this.setData({
+      sliderOffset: e.currentTarget.offsetLeft,
+      activeIndex: e.currentTarget.id
+    });
   },
 
   onShow: function () {
@@ -34,6 +52,39 @@ Page({
         hide: true,
       })
     }
+  },
+
+  //改变蓝牙控制状态
+  changeState: function () {
+    this.setData({
+      state: !this.data.state,
+    });
+    this.send(6);
+  },
+
+  //停止
+  stop: function () {
+    this.send(0);
+  },
+
+  //前进
+  forward: function () {
+    this.send(1);
+  },
+
+  //后退
+  backward: function () {
+    this.send(2);
+  },
+
+  //左转
+  turnleft: function () {
+    this.send(3);
+  },
+
+  //右转
+  turnright: function () {
+    this.send(4);
   },
 
   open_BLE: function () {
@@ -121,10 +172,9 @@ Page({
   },
 
   search_BLE: function () {
-    temp = []
-    var that = this
+    var that = this;
     if (!that.data.searchingstatus) {
-      var that = this
+      var that = this;
       //开始搜索附近蓝牙设备
       wx.startBluetoothDevicesDiscovery({
         success: function (res) {
@@ -158,13 +208,7 @@ Page({
         //获取发现的蓝牙设备
         wx.getBluetoothDevices({
           success: function (res) {
-            for (var i = 0; i < 100; i++) {
-              if (res.devices[i]) {
-                string_temp = string_temp + '\n' + res.devices[i].deviceId
-              }
-            }
             that.setData({
-              id_text: string_temp,
               list: res.devices
             })
           }
@@ -228,9 +272,9 @@ Page({
         }
         //监听回调，接收数据
         wx.onBLECharacteristicValueChange(function (characteristic) {
-          var hex = ab2hex(characteristic.value)
+          var hex = ab2hex(characteristic.value);
           that.setData({
-            receive_data: hexCharCodeToStr(hex)
+            receive_data: hexCharCodeToStr(hex),
           })
         })
       },
@@ -248,19 +292,15 @@ Page({
     })
     wx.stopBluetoothDevicesDiscovery({
       success: function (res) {
-
       }
     })
   },
 
-  formSubmit: function (e) {
-    var senddata = e.detail.value.senddata;
-    var that = this
-    let buffer = new ArrayBuffer(senddata.length)
-    let dataView = new DataView(buffer)
-    for (var i = 0; i < senddata.length; i++) {
-      dataView.setUint8(i, senddata.charAt(i).charCodeAt())
-    }
+  send: function (e) {
+    var that = this;
+    let buffer = new ArrayBuffer(1);
+    let dataView = new DataView(buffer);
+    dataView.setUint8(0, Number(e));
 
     wx.writeBLECharacteristicValue({
       deviceId: that.data.connectedDeviceId,
@@ -268,23 +308,7 @@ Page({
       characteristicId: characteristicId,
       value: buffer,
       success: function (res) {
-        wx.showToast({
-          title: '发送成功',
-          icon: 'success',
-          duration: 2000
-        })
       }
     })
   },
-
-  receiveMessages: function () {
-    var that = this;
-    wx.readBLECharacteristicValue({
-      deviceId: that.data.connectedDeviceId,
-      serviceId: serviceId,
-      characteristicId: characteristicId,
-      success: function (res) { }
-    })
-  },
-
 })

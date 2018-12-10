@@ -1,4 +1,4 @@
-/* pages/bluetooth_not_log/bluetooth_not_log.wxss */
+/* pages/bluetooth/bluetooth.wxss */
 
 view {
   display: inline-block;
@@ -26,4 +26,9 @@ view {
   position: relative;
   float: right;
   margin-right: 200rpx;
+}
+
+.img{
+  height: 120rpx;
+  width: 120rpx;
 }

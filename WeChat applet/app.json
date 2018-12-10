@@ -4,8 +4,7 @@
     "pages/home_log/home_log",
     "pages/my_not_log/my_not_log",
     "pages/my_log/my_log",
-    "pages/bluetooth_not_log/bluetooth_not_log",
-    "pages/bluetooth_log/bluetooth_log",
+    "pages/bluetooth/bluetooth",
     "pages/map/map"
   ],
   "window": {
@@ -24,7 +23,7 @@
         "selectedIconPath": "img/home-8x-f.png"
       },
       {
-        "pagePath": "pages/bluetooth_log/bluetooth_log",
+        "pagePath": "pages/bluetooth/bluetooth",
         "text": "蓝牙",
         "iconPath": "img/bluetooth-8x.png",
         "selectedIconPath": "img/bluetooth-8x-f.png"

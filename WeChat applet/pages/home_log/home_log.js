@@ -3,9 +3,6 @@ var wxCharts = require('../../utils/wxcharts-min.js');  //引入图标插件
 var app = getApp();                                     //获取全局变量
 
 Page({
-
-  data: {},
-
   //创建数据
   convert: function () {
     var categories = [];

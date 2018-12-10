@@ -2,8 +2,6 @@
 var app = getApp();     //获取全局变量
 
 Page({
-
-  //数据
   data: {
     display: true,                //登录标记
     text: '请登录后再进行操作',     //按钮文本
