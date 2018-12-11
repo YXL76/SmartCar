@@ -13,7 +13,7 @@ Page({
     searchingstatus: false,     //搜索状态
     list: [],                   //设备列表
     receive_data: '0',          //蓝牙串口消息
-    tabs: ["选项一", "选项二"],
+    tabs: ["连接", "操控"],
     activeIndex: 0,
     sliderOffset: 0,
     sliderLeft: 0
@@ -43,15 +43,9 @@ Page({
 
   onShow: function () {
     //登录校验
-    if (app.data.islog === false) {
-      this.setData({
-        hide: false,
-      })
-    } else {
-      this.setData({
-        hide: true,
-      })
-    }
+    this.setData({
+      hide: app.data.islog,
+    })
   },
 
   //改变蓝牙控制状态

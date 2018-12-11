@@ -3,6 +3,7 @@ var app = getApp();                   //获取全局变量
 
 Page({
   data: {
+    hide: false,                      //登录校验
     longitude: 116.288860,            //中心经度
     latitude: 40.157410,              //中心纬度
     scale: 16,                        //缩放级别
@@ -24,6 +25,13 @@ Page({
     this.setData({
       imageHeight: app.data.imageHeight,      //获取页面高度
       imageWidth: app.data.imageWidth,        //获取页面宽度
+    })
+  },
+
+  onShow: function () {
+    //登录校验
+    this.setData({
+      hide: app.data.islog,
     })
   },
 

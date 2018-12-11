@@ -60,6 +60,10 @@
       </view>
       <view class="weui-tab__content" hidden="{{activeIndex != 1}}">
         <view>
+          <view wx:if="{{!deviceconnected}}" style="margin-left: {{imageWidth/2-50}}rpx;">
+            <text>\n\n\n</text>
+            <text style="font-size:42rpx">请连接蓝牙后再进行操作</text>
+          </view>
           <view wx:if="{{deviceconnected}}">
             <view style="width: 100%; text-align:center;">
               <text>\n数据接收：</text>
