@@ -1,0 +1,6 @@
+{
+    "port": "COM8",
+    "board": "Microduino:avr:328p",
+    "sketch": "GPS.ino",
+    "configuration": "cpu=16MHzatmega328"
+}

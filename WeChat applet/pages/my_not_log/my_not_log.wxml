@@ -73,7 +73,7 @@
               <view class="weui-label">验证码</view>
             </view>
             <view class="weui-cell__bd">
-              <input class="weui-input" bindinput="bindcheckcode" placeholder="请输入验证码" />
+              <input class="weui-input" type="number" bindinput="bindcheckcode" placeholder="请输入验证码" />
             </view>
           </view>
           <!-- 密码 -->
@@ -94,6 +94,9 @@
               <input class="weui-input" password='true' maxlength="16" bindinput="bindpassword2" placeholder="请再次输入密码" />
             </view>
           </view>
+        </view>
+        <view style="color:gray; font-size:30rpx; text-align:center;">
+          <text style="background-color: white;">\n此版本关闭了短信验证码校验和密码复杂度校验</text>
         </view>
         <!-- 注册按钮 -->
         <view class="weui-btn-area">

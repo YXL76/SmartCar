@@ -1,0 +1,19 @@
+{
+    "configurations": [
+        {
+            "name": "Win32",
+            "includePath": [
+                "C:\\Users\\YXL\\AppData\\Local\\Arduino15\\packages\\Microduino\\hardware\\avr\\1.0.1\\**",
+                "C:\\Users\\YXL\\AppData\\Local\\Arduino15\\packages\\arduino\\tools\\**",
+                "C:\\Users\\YXL\\AppData\\Local\\Arduino15\\packages\\arduino\\hardware\\avr\\1.6.23\\**"
+            ],
+            "forcedInclude": [
+                "C:\\Users\\YXL\\AppData\\Local\\Arduino15\\packages\\Microduino\\hardware\\avr\\1.0.1\\cores\\arduino\\Arduino.h"
+            ],
+            "intelliSenseMode": "msvc-x64",
+            "compilerPath": "C:/Program Files (x86)/Microsoft Visual Studio/2017/Professional/VC/Tools/MSVC/14.16.27023/bin/Hostx64/x64/cl.exe",
+            "cStandard": "c11"
+        }
+    ],
+    "version": 4
+}
