@@ -1,37 +1,34 @@
-## Welcome to GitHub Pages
+# 智能监控小车
 
-You can use the [editor on GitHub](https://github.com/YXL76/SmartCar/edit/master/README.md) to maintain and preview the content for your website in Markdown files.
+## 目标
 
-Whenever you commit to this repository, GitHub Pages will run [Jekyll](https://jekyllrb.com/) to rebuild the pages in your site, from the content in your Markdown files.
+-   项目背景：农业大棚是通过对环境条件的改变从而增大作物的存活率、产量和质量。因此环境数据决定了大棚的实际效果。若能对环境进行实时监控，并调整对应设备，能大幅提高农业大棚的效果。但是，考虑到大棚的占地面积巨大，安装大量传感器必将提高成本，增加种植户的负担。
+-   项目草案：考虑到对数据的时效性要求没有非常苛刻，我们完全可以用一个搭载传感器的小车来代替固定的传感器，以牺牲一定的时效性来换取成本的降低。
+-   项目前景：通过GPS(甚至4G)定位把数据与位置关联起来，并通过见算计进行数据分析，调控大棚内的水帘、风机、遮阳板等设施，从而改变大棚内部的生物生长环境。在减少生产损失的同时，还能减少劳动力的投入，从而减低成本。
 
-### Markdown
+## 原理
 
-Markdown is a lightweight and easy-to-use syntax for styling your writing. It includes conventions for
+-   把mCookie的WIFI气象站例子搭载在由Arduino控制的小车上。
+-   小车通过红外感应能够循迹。
+-   增加了蓝牙操控功能增强了小车的可操作性。
+-   GPS定位功能方便使用者获取小车位置。
 
-```markdown
-Syntax highlighted code block
+## 项目演示
 
-# Header 1
-## Header 2
-### Header 3
+[硬件海报](https://s1.ax1x.com/2018/12/14/FUUMB8.jpg)
 
-- Bulleted
-- List
+[小程序海报](https://s1.ax1x.com/2018/12/14/FUtu8I.png)
 
-1. Numbered
-2. List
+演示视频：
 
-**Bold** and _Italic_ and `Code` text
+-   [Bilibili](https://www.bilibili.com/video/av38123278/)
+-   [腾讯视频](https://v.qq.com/x/page/o0812vdlr01.html)
 
-[Link](url) and ![Image](src)
-```
+小程序：![](https://s1.ax1x.com/2018/12/14/FUDCnI.jpg)（因为没有服务器，有些功能会不尽人意）
 
-For more details see [GitHub Flavored Markdown](https://guides.github.com/features/mastering-markdown/).
+## 团队故事
 
-### Jekyll Themes
+团队联系方式：chenxin.lan.76@gmail.com。
 
-Your Pages site will use the layout and styles from the Jekyll theme you have selected in your [repository settings](https://github.com/YXL76/SmartCar/settings). The name of this theme is saved in the Jekyll `_config.yml` configuration file.
+​	一开始我们对这个创新项目是根本没有想法，完全是被倒逼着做的，所以整个项目方案都有点划水的感觉。在做的过程中，渐渐发现项目的不足，所以在自己思考和其他人的建议下，对项目的功能进行细化，甚至一度想推翻重来，学校也提供了这样的机会，可为什么项目名能改，Wiki名就不能改（/大哭），所以只好一条路做到底。还是很满意的，也学到了很多知识。
 
-### Support or Contact
-
-Having trouble with Pages? Check out our [documentation](https://help.github.com/categories/github-pages-basics/) or [contact support](https://github.com/contact) and we’ll help you sort it out.
